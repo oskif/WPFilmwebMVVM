@@ -1,0 +1,13 @@
+﻿<Application x:Class="WPFilmweb.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFilmweb"
+             StartupUri="View/MainWindow.xaml"
+             xmlns:viewmodels="clr-namespace:WPFilmweb.ViewModel"
+             xmlns:views="clr-namespace:WPFilmweb.View"
+             >
+             
+    <Application.Resources>
+
+    </Application.Resources>
+</Application>

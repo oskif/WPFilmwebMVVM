@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="WPFilmweb.View.Movies"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFilmweb.View"
+             xmlns:ViewModels="clr-namespace:WPFilmweb.ViewModel"
+             xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="1129">
+    <UserControl.Resources>
+        <Style x:Key="MoviesStyle" TargetType="Button">
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style x:Key="TitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource MoviesStyle}" Command="{Binding MovieClick1}" 
+            Visibility="{Binding MoviesVisibility[0]}">
+            <Image Stretch="Fill" Source="{Binding Movies[0].Poster}"/>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource MoviesStyle}" Command="{Binding MovieClick2}" 
+            Visibility="{Binding MoviesVisibility[1]}">
+            <Image Stretch="Fill" Source="{Binding Movies[1].Poster}"/>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="0" Style="{StaticResource MoviesStyle}" Command="{Binding MovieClick3}" 
+            Visibility="{Binding MoviesVisibility[2]}">
+            <Image Stretch="Fill" Source="{Binding Movies[2].Poster}"/>
+        </Button>
+        <Button Grid.Column="3" Grid.Row="0" Style="{StaticResource MoviesStyle}" Command="{Binding MovieClick4}" 
+            Visibility="{Binding MoviesVisibility[3]}">
+            <Image Stretch="Fill" Source="{Binding Movies[3].Poster}"/>
+        </Button>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource TitleStyle}"
+            Text="{Binding Movies[0].Title}"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource TitleStyle}" 
+                   Text="{Binding Ratings[0]}"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource TitleStyle}"
+           Text="{Binding Movies[1].Title}"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource TitleStyle}" 
+                   Text="{Binding Ratings[1]}"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="2" Grid.Row="1" Style="{StaticResource TitleStyle}"
+            Text="{Binding Movies[2].Title}"/>
+        <TextBlock Grid.Column="2" Grid.Row="2" Style="{StaticResource TitleStyle}" 
+                   Text="{Binding Ratings[2]}"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="3" Grid.Row="1" Style="{StaticResource TitleStyle}"
+            Text="{Binding Movies[3].Title}"/>
+        <TextBlock Grid.Column="3" Grid.Row="2" Style="{StaticResource TitleStyle}" 
+                   Text="{Binding Ratings[3]}"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"/>
+        <Grid Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="5" Content="Previous" Command="{Binding PreviousPage}"/>
+            <TextBlock Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Height="26" Width="40"
+               Text="{Binding CurrentPage}"/>
+            <Button Grid.Column="2" Margin="5" Content="Next" Command="{Binding NextPage}"/>
+        </Grid>
+    </Grid>
+</UserControl>
